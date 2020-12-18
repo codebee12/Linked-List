@@ -49,6 +49,10 @@ public class LinkedList {
         System.out.println("Linked List after deletion at position 1...");
         list.traversal();
 
+        list.swapValues(2,3);
+        System.out.println("Linked List after swapping...");
+        list.traversal();
+
     }
 
     public void traversal()
@@ -123,8 +127,34 @@ public class LinkedList {
         }
     }
 
-    public void swap()
+    /*
+    Swap values between two positions
+     */
+    public void swapValues(int pos1, int pos2)
     {
-
+        if(pos1 <0 || pos2 < 0 || (pos1==pos2))
+            return;
+        else
+        {
+            Node iterator1 = this.head;
+            Node iterator2 = this.head;
+            int c1,c2;
+            c1=c2=1;
+//            pos1--;
+//            pos2--;
+            while(iterator1.next!=null && c1!=pos1)
+            {
+                iterator1 = iterator1.next;
+                c1++;
+            }
+            while(iterator2.next!=null && c2!=pos2)
+            {
+                iterator2 = iterator2.next;
+                c2++;
+            }
+            int temp = iterator1.data;
+            iterator1.data = iterator2.data;
+            iterator2.data = temp;
+        }
     }
 }
