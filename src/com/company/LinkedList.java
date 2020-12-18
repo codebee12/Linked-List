@@ -45,6 +45,10 @@ public class LinkedList {
         System.out.println("Linked List after inserting at position 2...");
         list.traversal();
 
+        list.deleteNode(2);
+        System.out.println("Linked List after deletion at position 1...");
+        list.traversal();
+
     }
 
     public void traversal()
@@ -95,5 +99,32 @@ public class LinkedList {
             node.next = iterator.next;
             iterator.next = node;
         }
+    }
+
+    public void deleteNode(int pos)
+    {
+        if(pos <1)
+            return;
+        if(pos == 1)
+        {
+            this.head = head.next;
+        }
+        else
+        {
+            pos--;
+            Node iterator = this.head;
+            int i=1;
+            while(iterator.next!= null && i!=pos)
+            {
+                iterator = iterator.next;
+                i++;
+            }
+            iterator.next = iterator.next.next;
+        }
+    }
+
+    public void swap()
+    {
+
     }
 }
